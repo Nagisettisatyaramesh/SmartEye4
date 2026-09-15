@@ -8,49 +8,12 @@ import { easePremium } from "@/lib/motion";
 
 const headlineWords = ["Quality", "intelligence", "for", "medical", "device", "innovation."];
 
-const floatingCards = [
-  {
-    title: "Design Verification",
-    status: "Passed",
-    tone: "pass" as const,
-    detail: "TC-2201",
-    top: "14%",
-    right: "4%",
-    delay: 1.6,
-  },
-  {
-    title: "ISO 14971 Risk Review",
-    status: "On Track",
-    tone: "track" as const,
-    detail: "RM-031",
-    top: "39%",
-    right: "9%",
-    delay: 1.9,
-  },
-  {
-    title: "Traceability",
-    status: "Complete",
-    tone: "pass" as const,
-    detail: "118 linked artifacts",
-    top: "63%",
-    right: "3%",
-    delay: 2.15,
-  },
-  {
-    title: "CAPA-0142",
-    status: "Closed",
-    tone: "pass" as const,
-    detail: "Verified · 2 approvals",
-    top: "86%",
-    right: "10%",
-    delay: 2.4,
-  },
+const floatingChips = [
+  { label: "Design Verification", status: "Passed", top: "18%", left: "8%", delay: 1.6 },
+  { label: "ISO 14971 Risk Review", status: "On Track", top: "68%", left: "6%", delay: 1.9 },
+  { label: "IEC 62304 Trace", status: "Linked", top: "24%", left: "82%", delay: 2.1 },
+  { label: "CAPA-0142", status: "Closed", top: "72%", left: "80%", delay: 2.35 },
 ];
-
-const toneStyle = {
-  pass: { dot: "bg-teal-400 shadow-[0_0_8px_2px_rgba(79,214,200,0.6)]", text: "text-teal-300" },
-  track: { dot: "bg-signal-amber shadow-[0_0_8px_2px_rgba(232,169,79,0.5)]", text: "text-signal-amber" },
-};
 
 export function Hero() {
   return (
@@ -85,28 +48,21 @@ export function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-void to-transparent" />
       </div>
 
-      {/* floating product notifications — decorative, hidden from small screens & AT */}
+      {/* floating status chips — decorative, hidden from small screens & AT */}
       <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true">
-        {floatingCards.map((card) => (
+        {floatingChips.map((chip) => (
           <motion.div
-            key={card.title}
+            key={chip.label}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: card.delay, ease: easePremium }}
-            className="absolute w-52 animate-float"
-            style={{ top: card.top, right: card.right, animationDelay: `${card.delay}s` }}
+            transition={{ duration: 1, delay: chip.delay, ease: easePremium }}
+            className="absolute animate-float"
+            style={{ top: chip.top, left: chip.left, animationDelay: `${chip.delay}s` }}
           >
-            <div className="glass-panel rounded-2xl px-4 py-3.5 shadow-panel">
-              <p className="eyebrow text-[0.6rem] text-ice-400">{card.title}</p>
-              <div className="mt-2 flex items-center gap-2">
-                <span className={`h-1.5 w-1.5 rounded-full ${toneStyle[card.tone].dot}`} />
-                <span className={`font-mono text-xs font-semibold uppercase tracking-wide ${toneStyle[card.tone].text}`}>
-                  {card.status}
-                </span>
-              </div>
-              <p className="mt-2 border-t border-white/8 pt-2 font-mono text-[0.65rem] text-ice-400">
-                {card.detail}
-              </p>
+            <div className="glass-panel flex items-center gap-2.5 rounded-full px-4 py-2.5 text-xs shadow-panel">
+              <span className="h-1.5 w-1.5 rounded-full bg-teal-400 shadow-[0_0_8px_2px_rgba(79,214,200,0.6)]" />
+              <span className="text-ice-300">{chip.label}</span>
+              <span className="font-mono text-[0.65rem] text-teal-300">{chip.status}</span>
             </div>
           </motion.div>
         ))}
@@ -123,7 +79,7 @@ export function Hero() {
             SmartEye eQMS
           </motion.p>
 
-          <h1 className="mt-7 font-display text-[2.65rem] font-bold leading-[1.03] tracking-tightest text-ice-100 sm:text-6xl lg:text-[5.75rem] xl:text-[6.25rem]">
+          <h1 className="mt-7 font-display text-[2.6rem] font-bold leading-[1.05] tracking-tightest text-ice-100 sm:text-6xl lg:text-[5.2rem]">
             {headlineWords.map((word, i) => (
               <span key={word} className="mr-3 inline-block overflow-hidden sm:mr-4">
                 <motion.span
@@ -144,8 +100,9 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 1.05, ease: easePremium }}
             className="mt-8 max-w-2xl text-lg leading-relaxed text-ice-300 sm:text-xl"
           >
-            Design, develop, test and maintain compliant medical devices and SaMD from one
-            intelligent quality management platform — built to mitigate risk, accelerate
+            The tool medical device and SaMD companies need to optimise their Quality
+            Management System and keep track of regulatory activity — transforming manual,
+            paper-based processes into one platform built to mitigate risk, accelerate
             compliance and improve quality.
           </motion.p>
 
@@ -160,6 +117,12 @@ export function Hero() {
             </Button>
             <Button href="/platform" variant="secondary" size="lg" icon={false}>
               Explore SmartEye
+            </Button>
+            <Button href="https://youtu.be/YjVfsjdiYAY" variant="ghost" size="lg" icon={false}>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M5 3.5v9l8-4.5-8-4.5z" fill="currentColor" />
+              </svg>
+              Watch a Video
             </Button>
           </motion.div>
         </div>

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
-import { SystemDiagram } from "@/components/home/SystemDiagram";
 import { PlatformFeatures } from "@/components/home/PlatformFeatures";
 import { Traceability } from "@/components/home/Traceability";
 import { QmsProcesses } from "@/components/platform/QmsProcesses";
@@ -35,7 +34,11 @@ export default function PlatformPage() {
       <section className="relative border-y border-white/8 bg-navy-950 py-20">
         <Container className="max-w-3xl">
           <Reveal>
-            <p className="text-lg leading-relaxed text-ice-300">
+            <p className="eyebrow kicker-line text-teal-400">SmartEye — QMS for medical devices</p>
+            <p className="mt-4 text-lg font-medium leading-relaxed text-ice-100">
+              Ready for your next audit inspection, before you even know it's happening.
+            </p>
+            <p className="mt-5 text-lg leading-relaxed text-ice-300">
               Developing a medical device — especially software-based solutions — requires strict
               adherence to regulations like FDA 21 CFR 820, ISO 13485, and IEC 62304. SmartEye
               centralises and automates your design control processes, making it easy to manage
@@ -46,7 +49,6 @@ export default function PlatformPage() {
         </Container>
       </section>
 
-      <SystemDiagram />
       <PlatformFeatures />
       <div id="traceability">
         <Traceability />

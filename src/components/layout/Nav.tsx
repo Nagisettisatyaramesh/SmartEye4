@@ -12,13 +12,11 @@ const links = [
     label: "Platform",
     href: "/platform",
     children: [
-      { label: "Requirements Management", href: "/platform#platform-features" },
+      { label: "Requirements Management", href: "/platform#requirements" },
       { label: "Design Control", href: "/design-control" },
       { label: "Risk Management", href: "/risk-management" },
       { label: "Test Management", href: "/test-management" },
       { label: "E2E Traceability", href: "/platform#traceability" },
-      { label: "Document Management", href: "/platform#platform-features" },
-      { label: "Analytics", href: "/platform#platform-features" },
     ],
   },
   {
@@ -37,24 +35,8 @@ const links = [
       { label: "Security", href: "/security" },
     ],
   },
-  {
-    label: "Resources",
-    href: "/resources",
-    children: [
-      { label: "Articles", href: "/resources" },
-      { label: "Videos", href: "/resources#videos" },
-      { label: "Guides", href: "/resources" },
-    ],
-  },
-  {
-    label: "Company",
-    href: "/about",
-    children: [
-      { label: "About", href: "/about" },
-      { label: "Careers", href: "/careers" },
-      { label: "Contact", href: "/contact" },
-    ],
-  },
+  { label: "Resources", href: "/resources" },
+  { label: "Company", href: "/about" },
 ];
 
 export function Nav() {
@@ -124,7 +106,7 @@ export function Nav() {
                     <div className="glass-panel rounded-2xl p-2 shadow-panel">
                       {link.children.map((child) => (
                         <Link
-                          key={child.label}
+                          key={child.href}
                           href={child.href}
                           className="block rounded-xl px-4 py-2.5 text-sm text-ice-300 transition-colors hover:bg-white/5 hover:text-teal-300"
                         >
@@ -202,7 +184,7 @@ export function Nav() {
                   {link.children && (
                     <div className="ml-3 flex flex-col gap-0.5 pb-2">
                       {link.children.map((child) => (
-                        <Link key={child.label} href={child.href} className="py-1.5 text-sm text-ice-400">
+                        <Link key={child.href} href={child.href} className="py-1.5 text-sm text-ice-400">
                           {child.label}
                         </Link>
                       ))}

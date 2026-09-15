@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { NetworkCanvas } from "@/components/ui/NetworkCanvas";
 import { Reveal } from "@/components/ui/Reveal";
@@ -15,15 +14,7 @@ export default function ContactPage() {
   return (
     <section className="relative overflow-hidden bg-void pb-28 pt-40 sm:pt-48">
       <div className="absolute inset-0" aria-hidden="true">
-        <Image
-          src="/images/microscope-petri.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_-10%,rgba(15,28,38,0.5)_0%,rgba(5,10,16,0.75)_50%,rgba(4,7,10,0.92)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_-10%,#0f1c26_0%,#050a10_50%,#04070a_100%)]" />
         <div className="absolute inset-0 bg-grid opacity-[0.18] mask-fade-b" />
         <NetworkCanvas className="absolute inset-0 h-full w-full opacity-40" density={22} />
       </div>
@@ -33,13 +24,24 @@ export default function ContactPage() {
           <Reveal>
             <p className="eyebrow kicker-line text-teal-400">Contact</p>
             <h1 className="mt-6 font-display text-4xl font-bold leading-[1.08] tracking-tightest text-ice-100 sm:text-5xl">
-              Let's build better quality systems.
+              Talk to the SmartEye eQMS team.
             </h1>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-ice-300">
               Want to understand more about how SmartEye eQMS could transform the way you manage
               your SaMD design and development process? Get in touch with one of our expert team
               for a free and easy demo from those who built it.
             </p>
+            <a
+              href="https://youtu.be/YjVfsjdiYAY"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-3 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-ice-200 transition-colors hover:border-teal-400/50 hover:text-teal-300"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M5 3.5v9l8-4.5-8-4.5z" fill="currentColor" />
+              </svg>
+              Watch a Video
+            </a>
           </Reveal>
 
           <Reveal delay={0.15} className="mt-10 space-y-5">
